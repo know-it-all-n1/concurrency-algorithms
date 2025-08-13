@@ -18,6 +18,7 @@ public class DekkerAlgorithm {
         this.turn = new Turn(1);
         wantp = false;
         wantq = false;
+        cs = new CriticalSection();
     }
 
     public void run() {
@@ -63,6 +64,7 @@ public class DekkerAlgorithm {
 
                         // critical section
                         cs.occupy("Process P");
+                        cs.abandon();
 
                         // turn <- 2
                         turn.setTurn(2);
@@ -113,6 +115,7 @@ public class DekkerAlgorithm {
 
                         // critical section
                         cs.occupy("Process Q");
+                        cs.abandon();
 
                         // turn <- 1
                         turn.setTurn(1);
