@@ -1,5 +1,7 @@
 package org.example.CriticalSectionProblem;
 
+import org.example.CriticalSectionProblem.Utilities.SharableInteger;
+
 /**
  * Implementation of the Dekker algorithm with demonstration purposes<br>
  *
@@ -9,11 +11,11 @@ package org.example.CriticalSectionProblem;
 public class DekkerAlgorithm {
     private boolean wantp;
     private boolean wantq;
-    private Turn turn;
+    private SharableInteger turn;
     private CriticalSection cs;
 
     public DekkerAlgorithm() {
-        this.turn = new Turn(1);
+        this.turn = new SharableInteger(1);
         wantp = false;
         wantq = false;
         cs = new CriticalSection();
@@ -46,13 +48,13 @@ public class DekkerAlgorithm {
                     while (wantq) {
 
                         // if turn = 2
-                        if (turn.getTurn() == 2) {
+                        if (turn.getValue() == 2) {
 
                             // wantp <- false
                             wantp = false;
 
                             // await turn = 1
-                            while (turn.getTurn() != 1) {
+                            while (turn.getValue() != 1) {
                                 Thread.sleep(500);
                             }
 
@@ -66,7 +68,7 @@ public class DekkerAlgorithm {
                     cs.abandon();
 
                     // turn <- 2
-                    turn.setTurn(2);
+                    turn.setValue(2);
 
                     // wantp <- false
                     wantp = false;
@@ -97,13 +99,13 @@ public class DekkerAlgorithm {
                     while (wantp) {
 
                         // if turn = 1
-                        if (turn.getTurn() == 1) {
+                        if (turn.getValue() == 1) {
 
                             // wantq <- false
                             wantq = false;
 
                             // await turn = 1
-                            while (turn.getTurn() != 2) {
+                            while (turn.getValue() != 2) {
                                 Thread.sleep(500);
                             }
 
@@ -117,7 +119,7 @@ public class DekkerAlgorithm {
                     cs.abandon();
 
                     // turn <- 1
-                    turn.setTurn(1);
+                    turn.setValue(1);
 
                     // wantq <- false
                     wantq = false;
@@ -126,22 +128,6 @@ public class DekkerAlgorithm {
                 }
 
             }
-        }
-    }
-
-    private class Turn {
-        private int turn;
-
-        public Turn(int turn) {
-            this.turn = turn;
-        }
-
-        public synchronized int getTurn() {
-            return turn;
-        }
-
-        public synchronized void setTurn(int turn) {
-            this.turn = turn;
         }
     }
 }
