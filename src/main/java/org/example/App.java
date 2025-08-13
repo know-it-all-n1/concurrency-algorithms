@@ -1,10 +1,12 @@
 package org.example;
 
-/**
- * Hello world!
- */
+import org.example.DekkerAlgorithm.DekkerAlgorithm;
+
 public class App {
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        // Dekker Algorithm
+        DekkerAlgorithm dkAlgo = new DekkerAlgorithm();
+        System.out.println("Testing Dekker Algorithm:%n");
+        dkAlgo.run();
     }
 }
