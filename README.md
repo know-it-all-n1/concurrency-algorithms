@@ -10,15 +10,15 @@ I've decided to continue studying it by my own.
 As main resource I am using the book: _Principles of Concurrent and Distributed
 Programming, Second Edition_, by **M. Ben-Ari**.
 
-**_Note_:** The main problem with concurrent programming is synchronisation
+_**Note:** The main problem with concurrent programming is synchronisation
 and communication between concurrent processes. The book focuses in the critical
 section problem, which is one of
 the main problems in concurrent programming. Therefore, the algorithms are
-focused on solving the critical section problem.
+focused on solving the critical section problem._
 
 ## Algorithms
 
-### Dekker Algorithm
+### Dekker's Algorithm
 
 Is the first algorithm shown in the book that solves the Critical Section
 problem, complying with the 3 correctness specifications:
@@ -26,3 +26,10 @@ problem, complying with the 3 correctness specifications:
 - Mutual exclusion
 - Freedom from deadlock
 - Freedom from starvation
+
+### Peterson's Algorithm
+
+An improved and shorter version of the Dekker's Algorithm.
+
+_**Note:** In this case, the composed await of two conditions can be broken
+into two individual awaits one after the other._
