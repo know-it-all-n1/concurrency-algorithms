@@ -18,7 +18,7 @@ focused on solving the critical section problem.
 
 ## Algorithms
 
-### Dekker
+### Dekker Algorithm
 
 Is the first algorithm shown in the book that solves the Critical Section
 problem, complying with the 3 correctness specifications:
