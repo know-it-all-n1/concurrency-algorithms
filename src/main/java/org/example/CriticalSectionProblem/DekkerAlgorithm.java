@@ -27,6 +27,13 @@ public class DekkerAlgorithm {
 
         p.start();
         q.start();
+
+        try {
+            p.join();
+            q.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private class ProcessP implements Runnable {
@@ -73,7 +80,7 @@ public class DekkerAlgorithm {
                     // wantp <- false
                     wantp = false;
                 } catch (InterruptedException e) {
-                    // IGNORED
+                    throw new RuntimeException(e);
                 }
 
             }
@@ -124,7 +131,7 @@ public class DekkerAlgorithm {
                     // wantq <- false
                     wantq = false;
                 } catch (InterruptedException e) {
-                    // IGNORED
+                    throw new RuntimeException(e);
                 }
 
             }
