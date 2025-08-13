@@ -61,17 +61,17 @@ public class DekkerAlgorithm {
                             // wantp <- true
                             wantp = true;
                         }
-
-                        // critical section
-                        cs.occupy("Process P");
-                        cs.abandon();
-
-                        // turn <- 2
-                        turn.setTurn(2);
-
-                        // wantp <- false
-                        wantp = false;
                     }
+
+                    // critical section
+                    cs.occupy("Process P");
+                    cs.abandon();
+
+                    // turn <- 2
+                    turn.setTurn(2);
+
+                    // wantp <- false
+                    wantp = false;
                 } catch (InterruptedException e) {
                     // IGNORED
                 }
@@ -96,7 +96,7 @@ public class DekkerAlgorithm {
                     wantq = true;
 
                     // while wantq
-                    while (wantq) {
+                    while (wantp) {
 
                         // if turn = 1
                         if (turn.getTurn() == 1) {
@@ -112,17 +112,17 @@ public class DekkerAlgorithm {
                             // wantq <- true
                             wantq = true;
                         }
-
-                        // critical section
-                        cs.occupy("Process Q");
-                        cs.abandon();
-
-                        // turn <- 1
-                        turn.setTurn(1);
-
-                        // wantq <- false
-                        wantq = false;
                     }
+
+                    // critical section
+                    cs.occupy("Process Q");
+                    cs.abandon();
+
+                    // turn <- 1
+                    turn.setTurn(1);
+
+                    // wantq <- false
+                    wantq = false;
                 } catch (InterruptedException e) {
                     // IGNORED
                 }
