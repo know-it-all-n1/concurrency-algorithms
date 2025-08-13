@@ -1,6 +1,4 @@
-package org.example.DekkerAlgorithm;
-
-import org.example.CriticalSection;
+package org.example.CriticalSectionProblem;
 
 /**
  * Implementation of the Dekker algorithm with demonstration purposes<br>

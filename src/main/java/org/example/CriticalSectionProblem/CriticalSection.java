@@ -1,4 +1,6 @@
-package org.example;
+package org.example.CriticalSectionProblem;
+
+import org.example.MutualExclusionInfringement;
 
 public class CriticalSection {
     private boolean occupied;

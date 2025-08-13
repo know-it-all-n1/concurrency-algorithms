@@ -1,6 +1,6 @@
 package org.example;
 
-import org.example.DekkerAlgorithm.DekkerAlgorithm;
+import org.example.CriticalSectionProblem.DekkerAlgorithm;
 
 public class App {
     public static void main(String[] args) {
