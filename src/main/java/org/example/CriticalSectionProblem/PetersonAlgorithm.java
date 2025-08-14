@@ -1,15 +1,13 @@
 package org.example.CriticalSectionProblem;
 
-import org.example.CriticalSectionProblem.Utilities.SharableInteger;
-
 public class PetersonAlgorithm {
     private boolean wantp;
     private boolean wantq;
-    private SharableInteger last;
+    private int last;
     private CriticalSection cs;
 
     public PetersonAlgorithm() {
-        this.last = new SharableInteger(1);
+        this.last = 1;
         wantp = false;
         wantq = false;
         cs = new CriticalSection();
@@ -46,10 +44,10 @@ public class PetersonAlgorithm {
                     wantp = true;
 
                     // last <- 1
-                    last.setValue(1);
+                    last = 1;
 
                     // await wantq = false or last = 2
-                    while (wantq && last.getValue() != 2) {
+                    while (wantq && last != 2) {
                         Thread.sleep(500);
                     }
 
@@ -83,10 +81,10 @@ public class PetersonAlgorithm {
                     wantq = true;
 
                     // last <- 1
-                    last.setValue(2);
+                    last = 2;
 
                     // await wantp = false or last = 1
-                    while (wantp && last.getValue() != 1) {
+                    while (wantp && last != 1) {
                         Thread.sleep(500);
                     }
 

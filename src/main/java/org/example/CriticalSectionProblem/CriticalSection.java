@@ -7,13 +7,13 @@ public class CriticalSection {
         occupied = false;
     }
 
-    public synchronized void occupy(String process) throws MutualExclusionInfringement {
+    public void occupy(String process) throws MutualExclusionInfringement {
         if (occupied) throw new MutualExclusionInfringement();
         occupied = true;
         System.out.println(process + " is occupying the critical section");
     }
 
-    public synchronized void abandon() {
+    public void abandon() {
         occupied = false;
     }
 }
