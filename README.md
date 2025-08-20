@@ -33,3 +33,13 @@ An improved and shorter version of the Dekker's Algorithm.
 
 _**Note:** In this case, the composed await of two conditions can be broken
 into two individual awaits one after the other._
+
+### The Bakery Algorithm
+
+An algorithm developed by Leslie Lamport.
+It solves the critical section problem for an arbitrary number of processes.
+
+Here there are two implementations, a weak one that is correct for a restrictive
+concurrency model such that of the book, and the original one, which is valid
+in less restrictive concurrency models.
+
